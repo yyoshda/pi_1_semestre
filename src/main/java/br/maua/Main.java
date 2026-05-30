@@ -1,9 +1,9 @@
 package br.maua;
 
-import br.maua.infrastructure.ConnectionFactory;
-
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import br.maua.infrastructure.ConnectionFactory;
 
 public class Main {
     public static void main(String[] args) {

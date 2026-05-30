@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class QuestaoAlternativa extends Questao {
     private List <Alternativa> alternativas =  new ArrayList<>();
 
@@ -35,3 +36,4 @@ public class QuestaoAlternativa extends Questao {
         QuestaoAlternativaDAO.commit(this, cx);
     }
 }
+

@@ -121,6 +121,11 @@ public class TelaAcoesTarefa extends javax.swing.JFrame {
 
     private void btnTarefasCriadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTarefasCriadasActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        TelaTarefasCriadas ttc = new TelaTarefasCriadas();
+        ttc.pack();
+        ttc.setLocationRelativeTo(null);
+        ttc.setVisible(true);
     }//GEN-LAST:event_btnTarefasCriadasActionPerformed
 
     /**

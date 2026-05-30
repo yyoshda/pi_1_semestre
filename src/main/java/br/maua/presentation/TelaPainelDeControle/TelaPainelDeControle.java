@@ -5,6 +5,8 @@
 
 package br.maua.presentation.TelaPainelDeControle;
 
+import br.maua.domain.Professor;
+
 /**
  *
  * @author Luiza
@@ -12,10 +14,19 @@ package br.maua.presentation.TelaPainelDeControle;
 public class TelaPainelDeControle extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaPainelDeControle.class.getName());
+    private final Professor professorLogado;
 
     /** Creates new form TelaPerfilAluno */
     public TelaPainelDeControle() {
+        this(null);
+    }
+
+    public TelaPainelDeControle(Professor professor) {
+        this.professorLogado = professor;
         initComponents();
+        if (this.professorLogado != null) {
+            nomeTitulo.setText("Bem vindo, " + this.professorLogado.getNomeCompleto() + "!");
+        }
     }
 
     /** This method is called from within the constructor to
@@ -26,7 +37,6 @@ public class TelaPainelDeControle extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         painelAzul = new javax.swing.JPanel();
         painelCinza = new javax.swing.JPanel();
@@ -61,7 +71,7 @@ public class TelaPainelDeControle extends javax.swing.JFrame {
         botaoAdmin.setName("botaoAdmin"); // NOI18N
         botaoAdmin.addActionListener(this::botaoAdminActionPerformed);
         painelCinza.add(botaoAdmin);
-        botaoAdmin.setBounds(590, 260, 139, 32);
+        botaoAdmin.setBounds(569, 260, 160, 32);
         botaoAdmin.getAccessibleContext().setAccessibleName("botaoAdmin");
 
         painelAzul1.setBackground(new java.awt.Color(19, 112, 178));
@@ -139,11 +149,14 @@ public class TelaPainelDeControle extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdminActionPerformed
-        // TODO add your handling code here:
+        new br.maua.presentation.TelaPainelAdministrativo.TelaPainelAdministrativo1().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoAdminActionPerformed
 
     private void botaoTabuleiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTabuleiroActionPerformed
-        // TODO add your handling code here:
+
+        new br.maua.presentation.TelaTabuleiro.TelaTabuleiro1(this.professorLogado, true).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoTabuleiroActionPerformed
 
     /**
