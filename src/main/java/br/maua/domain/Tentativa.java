@@ -86,7 +86,7 @@ public class Tentativa {
 
                     ){
                 ps.setInt(1, tarefa.getIdTarefa());
-                ps.setInt(2, aluno.getIdAluno());
+                ps.setInt(2, aluno.getId());
                 ps.setString(3, "concluída");
                 ps.executeUpdate();
             }

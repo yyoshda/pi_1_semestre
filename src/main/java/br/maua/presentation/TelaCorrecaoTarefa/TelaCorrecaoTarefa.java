@@ -242,24 +242,32 @@ public class TelaCorrecaoTarefa extends javax.swing.JFrame {
                         public void actionPerformed(java.awt.event.ActionEvent e) {
                             try {
 
-                                java.io.File arquivo = new java.io.File(pathArquivo);
+                                String pastaOrigem = "src/main/resources/assets/aluno/";
+                                java.io.File arquivoOrigem = new java.io.File(pastaOrigem + pathArquivo);
+                                String pastaDestino = "src/main/resources/assets/professor/";
+                                java.io.File arquivoDestino = new java.io.File(pastaDestino + pathArquivo);
+                                br.maua.service.ArquivoService.salvarArquivo(arquivoOrigem, arquivoDestino);
 
-                                if (arquivo.exists()) {
-                                    java.awt.Desktop.getDesktop().open(arquivo);
+                                if (arquivoDestino.exists()) {
+                                    java.awt.Desktop.getDesktop().open(arquivoDestino);
                                 }
 
                                 else {
+
                                     javax.swing.JOptionPane.showMessageDialog(TelaCorrecaoTarefa.this,
-                                            "Arquivo não localizado em: " + pathArquivo,
+                                            "Arquivo não localizado em: " + arquivoDestino.getAbsolutePath(),
                                             "Arquivo não encontrado",
                                             javax.swing.JOptionPane.ERROR_MESSAGE);
+
                                 }
                             }
                             catch (Exception ex) {
+
                                 javax.swing.JOptionPane.showMessageDialog(TelaCorrecaoTarefa.this,
                                         "Erro ao tentar abrir o arquivo: " + ex.getMessage(),
                                         "Erro do Sistema",
                                         javax.swing.JOptionPane.ERROR_MESSAGE);
+
                             }
                         }
                     });
